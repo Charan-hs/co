@@ -13,7 +13,10 @@ var app = express()
 app.use(express.static(buildPath));
 app.use(bodyParser.json())
 app.use(cors())
-app.listen(PORT,()=>console.log('Server started at : ',PORT))
+
+
+
+app.listen(PORT,()=>console.log('Server started '))
 
 
 app.use('/postContact',postContactRoutes)
