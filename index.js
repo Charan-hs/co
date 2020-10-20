@@ -6,7 +6,7 @@ const path = require('path');
 
 
 var postContactRoutes = require('./controllers/contactcontroller')
-const buildPath = path.join(__dirname, 'conreact','build');
+const buildPath = path.join(__dirname+'/conreact/build');
 
 const PORT = process.env.Port || 4000;
 var app = express()
