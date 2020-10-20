@@ -1,16 +1,19 @@
-require('./db')
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
+require('./db');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 
 
 var postContactRoutes = require('./controllers/contactcontroller')
+const buildPath = path.join(__dirname, 'conreact','build');
 
-
+const PORT = process.env.Port || 4000;
 var app = express()
+app.use(express.static(buildPath));
 app.use(bodyParser.json())
-app.use(cors({origin:'http://localhost:3000'}))
-app.listen(4000,()=>console.log('Server started at : 4000'))
+app.use(cors())
+app.listen(PORT,()=>console.log('Server started at : ',PORT))
 
 
 app.use('/postContact',postContactRoutes)
